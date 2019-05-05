@@ -1,0 +1,8 @@
+# Ignore Intellij project files and idea directory
+.idea/
+
+# Maven folders
+target/
+
+# Cucumber reports
+reports/
