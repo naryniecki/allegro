@@ -6,3 +6,5 @@ target/
 
 # Cucumber reports
 reports/
+
+.DS_Store
