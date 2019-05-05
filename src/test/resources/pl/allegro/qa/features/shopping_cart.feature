@@ -10,11 +10,11 @@ Scenario: Add two most expensive items to the shopping cart
      And I add two top items from the list to the shopping cart
      Then I have two items in the shopping cart
 
-#@api
-#Scenario: Add two most expensive itents to the shopping cart
-#    Given I have a valid token
-#    When I get the list of items from a category
-#    And I choose two most expensive
-#    And I send a request to add two most expensive items to the shopping cart
-#    Then when I get content of my cart
-#    And I have two items in it
+@api
+Scenario: Add two most expensive itents to the shopping cart
+    Given I have a valid token
+    When I get the list of items from a category
+    And I choose two most expensive
+    And I send a request to add two most expensive items to the shopping cart
+    Then when I get content of my cart
+    And I have two items in it
