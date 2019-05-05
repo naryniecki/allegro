@@ -5,7 +5,6 @@ import cucumber.api.java.en.Then;
 import org.junit.Assert;
 import pl.allegro.qa.pageobjects.Home;
 import pl.allegro.qa.steps.Hooks;
-import pl.allegro.qa.steps.restapi.Actions;
 
 import java.util.logging.Logger;
 
