@@ -4,8 +4,7 @@ Feature: Shopping cart
 @gui
 Scenario: Add two most expensive items to the shopping cart
      Given e-shop site is open
-     When I choose "Supermarket" category
-     And I chose "Kawa" subcategory
+     When I hove mouse over "Supermarket" category and click "Kawy" subcategory
      And I sort result by price descending
      And I add two top items from the list to the shopping cart
      Then I have two items in the shopping cart

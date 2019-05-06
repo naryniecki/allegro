@@ -37,7 +37,13 @@ public class Actions {
     @When("I add two top items from the list to the shopping cart")
     public void i_add_two_top_items_from_the_list_to_the_shopping_cart() {
         // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        itemsForSale.addItemToCart(1);
+    }
+
+    @When("I hove mouse over {string} category and click {string} subcategory")
+    public void i_hove_mouse_over_category_and_click_subcategory(String category, String subcategory) {
+        LOGGER.info("Hover mouse over " + category + " category");
+        itemsForSale = home.clickOnSubcategoryFromHomePage(category, subcategory);
     }
 
 }

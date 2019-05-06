@@ -1,9 +1,13 @@
 package pl.allegro.qa.pageobjects;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.List;
 
@@ -37,7 +41,23 @@ public class Home extends Page {
                 break;
             }
         }
-        if (!clicked) throw new NoSuchElementException(categoryName + "Not found on the page.");
+        if (!clicked) throw new NoSuchElementException(categoryName + " not found on the page.");
+    }
+
+    public ItemsForSale clickOnSubcategoryFromHomePage(String categoryName, String subcategoryName) {
+        boolean clicked = false;
+        for (WebElement category : categories) {
+            if (category.getText().equals(categoryName)) {
+                Actions action = new Actions(drv);
+                action.moveToElement(category).build().perform();
+                WebDriverWait wait = new WebDriverWait(drv, 10);
+                wait.until(ExpectedConditions.visibilityOfElementLocated(By.cssSelector("a[title='" + subcategoryName + "']"))).click();
+                clicked = true;
+                break;
+            }
+        }
+        if (!clicked) throw new NoSuchElementException(categoryName + " or " + subcategoryName + " not found on the page.");
+        return new ItemsForSale(drv);
     }
 
     public String getTitle() {
