@@ -3,13 +3,13 @@ To run all tests:
 
     mvn clean test
 
-To run GUI tests only:
+To run GUI tests only(sometimes fails when "random" add window pops up:
 
-    test -Dcucumber.options="--tags @gui"
+    mvn test -Dcucumber.options="--tags @gui"
 
-To run API tests only:
+To run API tests only(not all steps are implemented:
 
-    test -Dcucumber.options="--tags @gui"
+    mvn test -Dcucumber.options="--tags @api"
     
 ### Test properties
 See resources/tests.properties for browser configuration and API authentication settings.
