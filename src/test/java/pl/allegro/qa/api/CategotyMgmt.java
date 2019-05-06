@@ -15,10 +15,19 @@ public class CategotyMgmt {
     private ApiClient apiClient;
     private static final String CATEGORIES_END_POINT = "sale/categories";
 
+    /**
+     * Constructor for an Object to work with categories.
+     * @param apiClient has token and needed URLs.
+     */
     public CategotyMgmt(ApiClient apiClient) {
         this.apiClient = apiClient;
     }
 
+    /**
+     * Get categories.
+     * @return List of available categories.
+     * @throws IOException
+     */
     public Map<String, String> getMainCategories() throws IOException {
 
         Map<String, String> cats = new HashMap<String, String>();
