@@ -3,6 +3,7 @@ package pl.allegro.qa.steps.gui;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
 import org.junit.Assert;
+import pl.allegro.qa.pageobjects.Cart;
 import pl.allegro.qa.pageobjects.Home;
 import pl.allegro.qa.steps.Hooks;
 
@@ -22,7 +23,8 @@ public class Verifications {
 
     @Then("I have two items in the shopping cart")
     public void i_have_two_items_in_the_shopping_cart() {
-        // Write code here that turns the phrase above into concrete actions
-        throw new cucumber.api.PendingException();
+        Cart cart = new Cart(Hooks.drv);
+        LOGGER.info("Asserting that two items were added");
+        Assert.assertEquals(2, cart.countItemsInCart());
     }
 }
