@@ -1,7 +1,10 @@
 package pl.allegro.qa.steps;
 
+import cucumber.api.Scenario;
 import cucumber.api.java.After;
 import cucumber.api.java.Before;
+import org.openqa.selenium.OutputType;
+import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
 import pl.allegro.qa.api.ApiClient;
 import pl.allegro.qa.webdriver.Browser;
@@ -36,7 +39,11 @@ public class Hooks {
     }
 
     @After("@gui")
-    public void closeWebPage() {
+    public void guiTestTearDown(Scenario scenario) {
+        if (scenario.isFailed()) {
+            byte[] screenshot = ((TakesScreenshot) drv).getScreenshotAs(OutputType.BYTES);
+            scenario.embed(screenshot, "image/png");
+        }
         drv.close();
         LOGGER.info("###### GUI test ended ######");
     }
