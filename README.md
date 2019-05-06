@@ -29,3 +29,11 @@ See resources/tests.properties for browser configuration and API authentication 
 
 ### Test scenarios
 Test scenarios are written with Gherking in feature files, for example: pl/allegro/qa/features/shopping_cart.feature
+
+### Test reports
+Reports are saved to reports/ directory, available are:
+- HTML - index.html
+- JSON - tests.json
+- JUNIT - tests.xml
+
+If the GUI test fails, screen shot taken on failure is included. 
